@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PL Memorial Public School - Admission Form</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #eaf2ff;
+            margin: 0;
+            padding: 20px;
+            color: #222;
+        }
+
+        .school-header {
+            background: linear-gradient(135deg, #082c70, #1478c9);
+            color: white;
+            text-align: center;
+            padding: 25px 10px;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .school-header h1 {
+            margin: 5px 0;
+            font-size: 30px;
+        }
+
+        .school-header p {
+            margin: 8px 0;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px #0002;
+            overflow: hidden;
+        }
+
+        form {
+            padding: 25px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #123e83;
+            margin-top: 0;
+        }
+
+        .section-title {
+            background: #e6efff;
+            color: #123e83;
+            padding: 10px;
+            margin: 25px 0 15px;
+            border-left: 5px solid #1478c9;
+            font-weight: bold;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 17px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        label, legend {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #b9c7d9;
+            border-radius: 6px;
+            font-size: 15px;
+            background: white;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: 2px solid #80baff;
+            border-color: #1478c9;
+        }
+
+        fieldset {
+            border: 1px solid #b9c7d9;
+            border-radius: 7px;
+            padding: 14px;
+        }
+
+        .radio-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            margin-top: 10px;
+        }
+
+        .radio-options label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .radio-options input {
+            width: auto;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            min-width: 130px;
+            padding: 13px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: #087b42;
+            color: white;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #222;
+        }
+
+        .print-btn {
+            background: #1478c9;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        #message {
+            display: none;
+            background: #e1f7e8;
+            color: #126331;
+            border: 1px solid #8ad4a1;
+            border-radius: 7px;
+            padding: 15px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .note {
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+            padding: 0 20px 20px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 8px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full {
+                grid-column: auto;
+            }
+
+            .school-header h1 {
+                font-size: 23px;
+            }
+
+            form {
+                padding: 16px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .buttons, .note, #message {
+                display: none !important;
+            }
+
+            input, select, textarea {
+                border: 1px solid #888;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="school-header">
+        <h1>PL Memorial Public School</h1>
+        <p>LEARN • GROW • SUCCEED</p>
+        <p>Student Admission Registration Form</p>
+    </header>
+
+    <form id="admissionForm">
+
+        <h2>Admission Form</h2>
+
+        <div class="form-grid">
+
+            <div class="field full">
+                <label for="formDate">Admission Form Date *</label>
+                <input type="date" id="formDate" required>
+            </div>
+
+        </div>
+
+        <div class="section-title">1. Student Details</div>
+
+        <div class="form-grid">
+
+            <div class="field full">
+                <label for="studentName">Student's Full Name *</label>
+                <input type="text" id="studentName"
+                       placeholder="Enter student's full name"
+                       required>
+            </div>
+
+            <div class="field full">
+                <fieldset>
+                    <legend>Select Class *</legend>
+                    <div class="radio-options">
+                        <label><input type="radio" name="class"
+                            value="Nursery" required> Nursery</label>
+                        <label><input type="radio" name="class"
+                            value="LKG"> LKG</label>
+                        <label><input type="radio" name="class"
+                            value="UKG"> UKG</label>
+                        <label><input type="radio" name="class"
+                            value="1"> Class 1</label>
+                        <label><input type="radio" name="class"
+                            value="2"> Class 2</label>
+                        <label><input type="radio" name="class"
+                            value="3"> Class 3</label>
+                        <label><input type="radio" name="class"
+                            value="4"> Class 4</label>
+                        <label><input type="radio" name="class"
+                            value="5"> Class 5</label>
+                        <label><input type="radio" name="class"
+                            value="6"> Class 6</label>
+                        <label><input type="radio" name="class"
+                            value="7"> Class 7</label>
+                        <label><input type="radio" name="class"
+                            value="8"> Class 8</label>
+                        <label><input type="radio" name="class"
+                            value="9"> Class 9</label>
+                        <label><input type="radio" name="class"
+                            value="10"> Class 10</label>
+                        <label><input type="radio" name="class"
+                            value="11"> Class 11</label>
+                        <label><input type="radio" name="class"
+                            value="12"> Class 12</label>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="field">
+                <label for="age">Age (Years) *</label>
+                <input type="number" id="age" min="2" max="25"
+                       placeholder="Enter age" required>
+            </div>
+
+            <div class="field">
+                <label for="dob">Date of Birth *</label>
+                <input type="date" id="dob" required>
+            </div>
+
+            <div class="field full">
+                <fieldset>
+                    <legend>Gender *</legend>
+                    <div class="radio-options">
+                        <label><input type="radio" name="gender"
+                            value="Male" required> Male</label>
+                        <label><input type="radio" name="gender"
+                            value="Female"> Female</label>
+                        <label><input type="radio" name="gender"
+                            value="Other"> Other</label>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="field">
+                <label for="nationality">Nationality</label>
+                <input type="text" id="nationality" value="Indian">
+            </div>
+
+            <div class="field">
+                <label for="previousSchool">Previous School</label>
+                <input type="text" id="previousSchool"
+                       placeholder="Previous school name">
+            </div>
+
+        </div>
+
+        <div class="section-title">2. Parent / Guardian Details</div>
+
+        <div class="form-grid">
+
+            <div class="field">
+                <label for="fatherName">Father's Name *</label>
+                <input type="text" id="fatherName"
+                       placeholder="Enter father's name" required>
+            </div>
+
+            <div class="field">
+                <label for="motherName">Mother's Name *</label>
+                <input type="text" id="motherName"
+                       placeholder="Enter mother's name" required>
+            </div>
+
+            <div class="field">
+                <label for="guardian">Guardian's Name</label>
+                <input type="text" id="guardian"
+                       placeholder="If applicable">
+            </div>
+
+            <div class="field">
+                <label for="occupation">Father's Occupation</label>
+                <input type="text" id="occupation"
+                       placeholder="Enter occupation">
+            </div>
+
+            <div class="field">
+                <label for="mobile">Parent's Mobile Number *</label>
+                <input type="tel" id="mobile"
+                       placeholder="10-digit mobile number"
+                       pattern="[0-9]{10}" maxlength="10" required>
+            </div>
+
+            <div class="field">
+                <label for="email">Parent's Email</label>
+                <input type="email" id="email"
+                       placeholder="example@email.com">
+            </div>
+
+        </div>
+
+        <div class="section-title">3. Address Details</div>
+
+        <div class="form-grid">
+
+            <div class="field full">
+                <label for="address">Full Address *</label>
+                <textarea id="address"
+                    placeholder="House number, street, village or city"
+                    required></textarea>
+            </div>
+
+            <div class="field">
+                <label for="city">City / Village *</label>
+                <input type="text" id="city" required>
+            </div>
+
+            <div class="field">
+                <label for="state">State *</label>
+                <input type="text" id="state"
+                       placeholder="Enter state" required>
+            </div>
+
+            <div class="field">
+                <label for="pincode">PIN Code</label>
+                <input type="text" id="pincode"
+                       pattern="[0-9]{6}" maxlength="6"
+                       placeholder="6-digit PIN code">
+            </div>
+
+        </div>
+
+        <div class="section-title">4. Additional Information</div>
+
+        <div class="form-grid">
+
+            <div class="field">
+                <label for="transport">Transport Facility</label>
+                <select id="transport">
+                    <option value="">Select option</option>
+                    <option value="School Bus">School Bus</option>
+                    <option value="Self">Self / Parent Drop</option>
+                    <option value="Walking">Walking</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="medium">Preferred Medium</label>
+                <select id="medium">
+                    <option value="">Select medium</option>
+                    <option value="English">English</option>
+                    <option value="Hindi">Hindi</option>
+                </select>
+            </div>
+
+            <div class="field full">
+                <label for="remarks">Any Other Information</label>
+                <textarea id="remarks"
+                    placeholder="Write additional information here"></textarea>
+            </div>
+
+            <div class="field full">
+                <label>
+                    <input type="checkbox" id="declaration"
+                           style="width:auto" required>
+                    I confirm that the information provided is correct.
+                </label>
+            </div>
+
+        </div>
+
+        <div class="buttons">
+            <button type="submit" class="submit-btn">
+                Submit Form
+            </button>
+
+            <button type="reset" class="reset-btn">
+                Reset Form
+            </button>
+
+            <button type="button" class="print-btn"
+                    onclick="window.print()">
+                Print Form
+            </button>
+        </div>
+
+        <div id="message" role="status"></div>
+
+    </form>
+
+    <div class="note">
+        PL Memorial Public School | Student Admission Registration
+    </div>
+
+</div>
+
+<script>
+    const form = document.getElementById("admissionForm");
+    const message = document.getElementById("message");
+
+    // Set today's date automatically
+    document.getElementById("formDate").value =
+        new Date().toISOString().split("T")[0];
+
+    // Check that date of birth is not in the future
+    document.getElementById("dob").max =
+        new Date().toISOString().split("T")[0];
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const studentName =
+            document.getElementById("studentName").value.trim();
+
+        const fatherName =
+            document.getElementById("fatherName").value.trim();
+
+        const selectedClass =
+            document.querySelector('input[name="class"]:checked');
+
+        const age = document.getElementById("age").value;
+
+        if (!selectedClass) {
+            alert("Please select a class.");
+            return;
+        }
+
+        if (!studentName || !fatherName || !age) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+
+        const className =
+            selectedClass.value.match(/^\d+$/)
+            ? "Class " + selectedClass.value
+            : selectedClass.value;
+
+        message.style.display = "block";
+        message.innerHTML =
+            "<strong>Form completed successfully!</strong><br>" +
+            "School: PL Memorial Public School<br>" +
+            "Student: " + escapeHTML(studentName) + "<br>" +
+            "Class: " + escapeHTML(className) + "<br>" +
+            "Father's Name: " + escapeHTML(fatherName) + "<br>" +
+            "<strong>Note:</strong> This is a demo form. " +
+            "Your information has not been saved to a school database.";
+
+        message.scrollIntoView({ behavior: "smooth" });
+    });
+
+    function escapeHTML(value) {
+        const element = document.createElement("span");
+        element.textContent = value;
+        return element.innerHTML;
+    }
+
+    form.addEventListener("reset", function() {
+        message.style.display = "none";
+    });
+</script>
+
+</body>
+</html>
